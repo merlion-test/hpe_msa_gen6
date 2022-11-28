@@ -1,595 +1,527 @@
-<?
-	$location=explode('/', $_SERVER['REQUEST_URI']);
-	$ROOT=str_replace("/htdocs", "", $_SERVER['DOCUMENT_ROOT']);
-	
-	require_once($ROOT."/inc/start.php");
-	require_once("functions/validate.php");
-	?>
 <!DOCTYPE html>
-<!--[if lt IE 7]><html lang="ru" class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
-<!--[if IE 7]><html lang="ru" class="lt-ie9 lt-ie8"><![endif]-->
-<!--[if IE 8]><html lang="ru" class="lt-ie9"><![endif]-->
-<!--[if gt IE 8]><!-->
-<html lang="ru">
-	<!--<![endif]-->
+<!--if lt IE 7-->
+<!--if IE 7-->
+<!--if IE 8-->
+<!-- [if gt IE 8] <!-->
+<!-- <![endif]-->
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge;IE=EmulateIE7;IE=EmulateIE8;IE=EmulateIE9;chrome=1">
-	<title>Р7-Офис. Редакторы документов</title>
-	<meta name="description" content="Российский офис для российских и зарубежных операционных систем">
-	<meta property="og:title" content="Р7-Офис. Редакторы документов">
-	<meta property="og:description" content="Российский офис для российских и зарубежных операционных систем">
-	<meta property="og:image" content="">
-	<meta property="og:url" content="">
-	<link rel="shortcut icon" type="image/png" href="https://static.merlion.ru/favicon.ico">
-	<link rel="apple-touch-icon" href="https://static.merlion.ru/favicon.ico">
-	<link href="css/style.css" rel="stylesheet" type="text/css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge;IE=EmulateIE7;IE=EmulateIE8;IE=EmulateIE9;chrome=1">
+  <title>Семейство продуктов HPE MSA GEN6</title>
+  <meta name="description" content="Новое поколение гибридной системы хранения данных">
+  <meta property="og:title" content="Р7-Офис. Редакторы документов">
+  <meta property="og:description" content="Российский офис для российских и зарубежных операционных систем">
+  <meta property="og:image" content="">
+  <meta property="og:url" content="">
+  <link rel="shortcut icon" type="image/png" href="//static.tegrus.ru/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="https://static.lc-group.ru/css/jquery.fancybox.css">
+  <link href="https://event.merlion.com/2021/hpe_msa_gen6/css/reset.css" rel="stylesheet" type="text/css">
+  <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
-	<body>
-		<header class="header">
-			<div class="header__container">
-				<div class="wrapper">
-					<div class="header__content">
-						<div class="header__logo">
-							<a href="https://rus.merlion.ru/vendors/r7-office" target="_blank">
-								<img src="https://static.merlion.ru/promo/2022/r7-office-document-editors/logo_r7.svg" alt="Р7-Офис">
-							</a>
-						</div>
-						<div class="header__buttons">
-							<div class="btn btn_transparent">
-								<a target="_blank" href="https://rus.merlion.ru/demo/r7-office/" class="demoButton">Заказать демонстрацию</a>
-							</div>
-							<div class="btn btn_transparent">
-								<a class="requestButton">Купить</a>
-							</div>
-						</div>
-						<div class="menu__icon">
-							<span></span>
-						</div>
-						<nav class="menu__list">
-							<ul>
-								<li>
-									<a class="menu__link" data-goto=".text-editor" href="">Текстовый редактор</a>
-								</li>
-								<li>
-									<a class="menu__link" data-goto=".table-editor" href="">Редактор таблиц</a>
-								</li>
-								<li>
-									<a class="menu__link" data-goto=".presentation-editor" href="">Редактор презентаций</a>
-								</li>
-								<li>
-									<a class="menu__link" data-goto=".server" href="">Корпоративный сервер</a>
-								</li>
-								<li>
-									<a taget="_blank" href="https://rus.merlion.ru/demo/r7-office/" class="demoButton">Заказать демонстрацию</a>
-								</li>
-								<li>
-									<a class="requestButton">Купить</a>
-								</li>
-							</ul>
-						</nav>
-					</div>
-				</div>
-			</div>
-			<div class="banner">
-				<div class="wrapper">
-					<div class="banner__container">
-						<div class="banner__text">
-							<h1>Р7-Офис. Редакторы документов</h1>
-							<h2>Российский офис для&nbsp;российских и&nbsp;зарубежных операционных систем</h2>
-							<p>Р7-Офис&nbsp;&mdash; профессиональные редакторы документов, таблиц и&nbsp;презентаций для&nbsp;госучреждений и&nbsp;образования, готовые полностью заменить решения от&nbsp;Microsoft уже&nbsp;сегодня</p>
-						</div>
-						<div class="banner__buttons">
-							<div class="btn btn_white">
-								<a class="requestButton">Купить</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</header>
-		<main>
-			<section class="features">
-				<div class="wrapper">
-					<div class="features__content">
-						<div class="features__row">
-							<div class="features__column _anim-items _anim-no-hide">
-								<div class="features__item">
-									<div class="features__icon">
-										<img src="https://static.merlion.ru/promo/2022/r7-office-document-editors/icon_1.webp" alt="Совместимость с популярными ОС">
-									</div>
-									<h3>Совместимость с&nbsp;популярными ОС</h3>
-									<p>Р7-Офис совместим с&nbsp;операционными системами семейств Альт и&nbsp;Rosa Linux, Astra Linux, РЕД ОС и&nbsp;другими. Офисный пакет также работает с&nbsp;Windows (32 и&nbsp;64 бита), Debian, Ubuntu и&nbsp;производными, дистрибутивами на&nbsp;базе RPM, Mac OS 10.10 или&nbsp;выше</p>
-								</div>
-							</div>
-							<div class="features__column _anim-items _anim-no-hide">
-								<div class="features__item">
-									<div class="features__icon">
-										<img src="https://static.merlion.ru/promo/2022/r7-office-document-editors/icon_2.webp" alt="Поддержка форматов Microsoft">
-									</div>
-									<h3>Поддержка форматов Microsoft</h3>
-									<p>Р7-Офис гарантирует максимальную совместимость с&nbsp;Microsoft и&nbsp;поддерживает другие популярные форматы, включая ODF</p>
-								</div>
-							</div>
-							<div class="features__column _anim-items _anim-no-hide">
-								<div class="features__item">
-									<div class="features__icon">
-										<img src="https://static.merlion.ru/promo/2022/r7-office-document-editors/icon_3.webp" alt="Соответствие требованиям законодательства РФ">
-									</div>
-									<h3>Соответствие требованиям законодательства РФ</h3>
-									<p>Р7-Офис полностью соответствует всем необходимым для&nbsp;использования в&nbsp;госорганах требованиям, включая Постановления Правительства РФ №1236 от&nbsp;16.11.2015 и&nbsp;№325 от&nbsp;23.03.2017</p>
-								</div>
-							</div>
-							<div class="features__column _anim-items _anim-no-hide">
-								<div class="features__item">
-									<div class="features__icon">
-										<img src="https://static.merlion.ru/promo/2022/r7-office-document-editors/icon_4.webp" alt="Удобный вкладочный интерфейс">
-									</div>
-									<h3>Удобный вкладочный интерфейс</h3>
-									<p>Вам не&nbsp;нужно открывать множество окон одной и&nbsp;той же программы: вы можете работать с&nbsp;текстовыми документами, таблицами и&nbsp;презентациями в&nbsp;одном окне, переключаясь между вкладками</p>
-								</div>
-							</div>
-							<div class="features__column _anim-items _anim-no-hide">
-								<div class="features__item">
-									<div class="features__icon">
-										<img src="https://static.merlion.ru/promo/2022/r7-office-document-editors/icon_5.webp" alt="Плагины">
-									</div>
-									<h3>Плагины</h3>
-									<p>Вы можете добавить в&nbsp;редакторы любые нужные вам функции, написав их самостоятельно или&nbsp;подключив уже существующие сервисы: Главред, Яндекс.Переводчик, редактор изображений от&nbsp;Adobe и&nbsp;другие</p>
-								</div>
-							</div>
-							<div class="features__column _anim-items _anim-no-hide">
-								<div class="features__item">
-									<div class="features__icon">
-										<img src="https://static.merlion.ru/promo/2022/r7-office-document-editors/icon_6.webp" alt="Версии для госучреждений и образования">
-									</div>
-									<h3>Версии для&nbsp;госучреждений и&nbsp;образования</h3>
-									<p>Р7-Офис&nbsp;&mdash; полнофункциональный офисный пакет, рекомендованный для&nbsp;организаций, работающих с&nbsp;конфиденциальной информацией. Приложение развивается с&nbsp;учетом нужд госучреждений и&nbsp;образования и&nbsp;поставляется по&nbsp;доступным ценам</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section class="spec__section text-editor">
-				<div class="wrapper">
-					<div class="spec__title">
-						<h2>Текстовый редактор <nobr>Р7-Офис</nobr></h2>
-						<p>Профессиональный инструмент, готовый полностью заменить решения от&nbsp;Microsoft Office уже сегодня</p>
-					</div>
-					<div class="spec__container">
-						<div class="spec__row">
-							<div class="spec__column">
-								<div class="spec__property">Работа со&nbsp;всеми ключевыми форматами</div>
-							</div>
-							<div class="spec__column">
-								<div class="spec__value">Открывайте и&nbsp;редактируйте документы в&nbsp;формате:<br>DOCX, DOC, PDF, TXT, ODT, RTF, HTML, EPUB</div>
-							</div>
-						</div>
-						<div class="spec__row">
-							<div class="spec__column">
-								<div class="spec__property">Удобный интерфейс для&nbsp;редактирования онлайн и&nbsp;с&nbsp;компьютера</div>
-							</div>
-							<div class="spec__column">
-								<div class="spec__value">Пользуйтесь решением онлайн или&nbsp;скачивайте в&nbsp;ваш ПК: одинаковый интерфейс приложений поможет работать легко в&nbsp;любом режиме</div>
-							</div>
-						</div>
-						<div class="spec__row">
-							<div class="spec__column">
-								<div class="spec__property">Максимальное количество шрифтов, стилей, шаблонов</div>
-							</div>
-							<div class="spec__column">
-								<div class="spec__value">Управляйте шрифтами, стилями и&nbsp;шаблонами текста, выбирая наиболее подходящие для&nbsp;реализации ваших целей из&nbsp;задач</div>
-							</div>
-						</div>
-						<div class="spec__row">
-							<div class="spec__column">
-								<div class="spec__property">Эффективная совместная работа над текстами</div>
-							</div>
-							<div class="spec__column">
-								<div class="spec__value">Используйте инструменты для&nbsp;плодотворной работы над текстами в&nbsp;команде: предлагайте свои правки, оставляйте комментарии, заводите обсуждения</div>
-							</div>
-						</div>
-						<div class="spec__row">
-							<div class="spec__column">
-								<div class="spec__property">Поддержка популярных макросов и&nbsp;плагинов</div>
-							</div>
-							<div class="spec__column">
-								<div class="spec__value">Используйте макросы (JavaScript) и&nbsp;популярные плагины (Редактор изображений, OCR, Переводчик и&nbsp;др.), чтобы автоматизировать стандартные и&nbsp;повторяющиеся задачи при&nbsp;работе с&nbsp;текстами</div>
-							</div>
-						</div>
-						<div class="spec__row">
-							<div class="spec__column">
-								<div class="spec__property">Удобное форматирование текстов</div>
-							</div>
-							<div class="spec__column">
-								<div class="spec__value">Наведите порядок в&nbsp;текстах документов, создавая многоуровневые нумерованные или&nbsp;маркированные списки, нумерации страниц</div>
-							</div>
-						</div>
-						<div class="spec__row">
-							<div class="spec__column">
-								<div class="spec__property">Быстрое сравнение документов</div>
-							</div>
-							<div class="spec__column">
-								<div class="spec__value">Открывайте и&nbsp;сравнивайте два документа, чтобы увидеть отличия между ними. При необходимости – принимайте или&nbsp;отклоняйте предложенные изменения и&nbsp;сохраняйте в&nbsp;новую или&nbsp;отдельную версию документа</div>
-							</div>
-						</div>
-						<div class="spec__row">
-							<div class="spec__column">
-								<div class="spec__property">Добавление любых вспомогательных элементов</div>
-							</div>
-							<div class="spec__column">
-								<div class="spec__value">Вставляйте в&nbsp;текстовые файлы необходимые ссылки, таблицы, диаграммы автофигуры, формулы и&nbsp;текстовые объекты</div>
-							</div>
-						</div>
-					</div>
-					<div class="spec__links">
-						<div class="btn btn_bright">
-							<a href="https://rus.merlion.ru/demo/r7-office#r7-ofis-redaktory-dokumentov" target="_blank" class="demoButton">Запросить демонстрацию</a>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section class="spec__section table-editor">
-				<div class="wrapper">
-					<div class="spec__title">
-						<h2>Редактор таблиц <nobr>Р7-Офис</nobr></h2>
-						<p>Профессиональный инструмент, готовый полностью заменить решения от&nbsp;Microsoft Office уже сегодня</p>
-					</div>
-					<div class="spec__container">
-						<div class="spec__row">
-							<div class="spec__column">
-								<div class="spec__property">Использование редактора таблиц для&nbsp;автоматизации вычислений, организации и&nbsp;анализа данных</div>
-							</div>
-							<div class="spec__column">
-								<div class="spec__value">Открывайте и&nbsp;редактируйте таблицы в&nbsp;формате XLS, XLSX, ODS, CSV и&nbsp;сохраняйте их в&nbsp;PDF</div>
-							</div>
-						</div>
-						<div class="spec__row">
-							<div class="spec__column">
-								<div class="spec__property">Удобный интерфейс для&nbsp;редактирования онлайн и&nbsp;с&nbsp;компьютера</div>
-							</div>
-							<div class="spec__column">
-								<div class="spec__value">Пользуйтесь решением онлайн или&nbsp;скачивайте в&nbsp;ваш ПК: одинаковый интерфейс приложений поможет работать легко в&nbsp;любом режиме</div>
-							</div>
-						</div>
-						<div class="spec__row">
-							<div class="spec__column">
-								<div class="spec__property">Максимальное количество функций и&nbsp;формул</div>
-							</div>
-							<div class="spec__column">
-								<div class="spec__value">Используйте более 440 встроенных функций и&nbsp;формул: финансовые, статистические, информационно-технологические, инженерные, математические, поисковые и&nbsp;пр. для&nbsp;реализации ваших целей из&nbsp;задач</div>
-							</div>
-						</div>
-						<div class="spec__row">
-							<div class="spec__column">
-								<div class="spec__property">Эффективная совместная работа с&nbsp;таблицами</div>
-							</div>
-							<div class="spec__column">
-								<div class="spec__value">Используйте инструменты для&nbsp;плодотворной работы с&nbsp;таблицами в&nbsp;команде: предлагайте свои правки, оставляйте комментарии, заводите обсуждения</div>
-							</div>
-						</div>
-						<div class="spec__row">
-							<div class="spec__column">
-								<div class="spec__property">Поддержка популярных макросов и&nbsp;плагинов</div>
-							</div>
-							<div class="spec__column">
-								<div class="spec__value">Используйте макросы (JavaScript) и&nbsp;популярные плагины (Редактор изображений, Переводчик и&nbsp;др.), чтобы автоматизировать стандартные и&nbsp;повторяющиеся задачи при&nbsp;работе с&nbsp;таблицами</div>
-							</div>
-						</div>
-						<div class="spec__row">
-							<div class="spec__column">
-								<div class="spec__property">Быстрый анализ и&nbsp;фильтрация данных</div>
-							</div>
-							<div class="spec__column">
-								<div class="spec__value">Сортируйте и&nbsp;фильтруйте данные, сохраняя шаблоны таблиц, которые в&nbsp;будущем ускорят вашу текущую работу в&nbsp;разы</div>
-							</div>
-						</div>
-						<div class="spec__row">
-							<div class="spec__column">
-								<div class="spec__property">Точные расчеты легко и&nbsp;быстро</div>
-							</div>
-							<div class="spec__column">
-								<div class="spec__value">Используйте именованные диапазоны и&nbsp;изменяйте формат представления чисел, чтобы упростить работу с&nbsp;таблицами и&nbsp;быстро обнаруживать нужный контент</div>
-							</div>
-						</div>
-						<div class="spec__row">
-							<div class="spec__column">
-								<div class="spec__property">Добавление любых вспомогательных элементов</div>
-							</div>
-							<div class="spec__column">
-								<div class="spec__value">Вставляйте любые необходимые изображения, ссылки, автофигуры, текстовые объекты, классические и&nbsp;3D-диаграммы</div>
-							</div>
-						</div>
-					</div>
-					<div class="spec__links">
-						<div class="btn btn_white">
-							<a class="demoButton">Запросить демонстрацию</a>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section class="spec__section presentation-editor">
-				<div class="wrapper">
-					<div class="spec__title">
-						<h2>Редактор презентаций <nobr>Р7-Офис</nobr></h2>
-						<p>Профессиональный инструмент, готовый полностью заменить решения от&nbsp;Microsoft Office уже сегодня</p>
-					</div>
-					<div class="spec__container">
-						<div class="spec__row">
-							<div class="spec__column">
-								<div class="spec__property">Создание ярких демонстрационных материалов</div>
-							</div>
-							<div class="spec__column">
-								<div class="spec__value">Просматривайте и&nbsp;редактируйте презентации в&nbsp;формате PPTX, PPT, ODP</div>
-							</div>
-						</div>
-						<div class="spec__row">
-							<div class="spec__column">
-								<div class="spec__property">Удобный интерфейс для&nbsp;редактирования онлайн и&nbsp;с компьютера</div>
-							</div>
-							<div class="spec__column">
-								<div class="spec__value">Пользуйтесь решением онлайн или&nbsp;скачивайте в&nbsp;ваш ПК: одинаковый интерфейс приложений поможет работать легко в&nbsp;любом режиме</div>
-							</div>
-						</div>
-						<div class="spec__row">
-							<div class="spec__column">
-								<div class="spec__property">Удобная настройка показа слайдов и&nbsp;переходов</div>
-							</div>
-							<div class="spec__column">
-								<div class="spec__value">Создавайте современные интерактивные презентации с&nbsp;помощью готовых переходов и&nbsp;правильно настроенного режима показа слайдов</div>
-							</div>
-						</div>
-						<div class="spec__row">
-							<div class="spec__column">
-								<div class="spec__property">Эффективная совместная работа с&nbsp;презентациями</div>
-							</div>
-							<div class="spec__column">
-								<div class="spec__value">Используйте инструменты для&nbsp;плодотворной работы с&nbsp;презентациями в&nbsp;команде: предлагайте свои правки, оставляйте комментарии, заводите обсуждения</div>
-							</div>
-						</div>
-						<div class="spec__row">
-							<div class="spec__column">
-								<div class="spec__property">Поддержка популярных макросов и&nbsp;плагинов</div>
-							</div>
-							<div class="spec__column">
-								<div class="spec__value">Используйте макросы (JavaScript) и&nbsp;популярные плагины (Редактор изображений, Переводчик и&nbsp;др.), чтобы автоматизировать стандартные и&nbsp;повторяющиеся задачи при&nbsp;работе с&nbsp;презентациями</div>
-							</div>
-						</div>
-						<div class="spec__row">
-							<div class="spec__column">
-								<div class="spec__property">Комфортный режим докладчика и&nbsp;заметок</div>
-							</div>
-							<div class="spec__column">
-								<div class="spec__value">Проводите яркие презентации, используя режим докладчика и&nbsp;заранее прописывая в&nbsp;закладках важные мысли, цифры и&nbsp;факты для&nbsp;вашей речи</div>
-							</div>
-						</div>
-						<div class="spec__row">
-							<div class="spec__column">
-								<div class="spec__property">Добавление любых вспомогательных элементов</div>
-							</div>
-							<div class="spec__column">
-								<div class="spec__value">Вставляйте любые необходимые изображения, автофигуры, диаграммы и&nbsp;переходы, чтобы визуально украсить ваши слайды</div>
-							</div>
-						</div>
-						<div class="spec__row">
-							<div class="spec__column">
-								<div class="spec__property">Удобное структурирование текста на слайдах</div>
-							</div>
-							<div class="spec__column">
-								<div class="spec__value">Наведите порядок в&nbsp;текстах слайдов: форматируйте таблицы и&nbsp;создавайте многоуровневые нумерованные или&nbsp;маркированные списки</div>
-							</div>
-						</div>
-					</div>
-					<div class="spec__links">
-						<div class="btn btn_bright">
-							<a class="demoButton">Запросить демонстрацию</a>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section class="server__section server">
-				<div class="wrapper">
-					<div class="server__title">
-						<h2>Корпоративный сервер <nobr>Р7-Офис</nobr></h2>
-						<p>Управление документами, редакторы, почта, календарь и&nbsp;корпоративная соцсеть для&nbsp;бизнеса, госорганов и&nbsp;учреждений образования</p>
-					</div>
-					<div class="server__container">
-						<div class="server__row">
-							<div class="server__column">
-								<div class="server__item">
-									<div class="server__name">
-										Редакторы Р7-Офис
-									</div>
-									<div class="server__text">
-										<div class="server__property">Профессиональный онлайн-редактор текстовых документов</div>
-										<div class="server__property">Мощный онлайн-редактор электронных таблиц</div>
-										<div class="server__property">Редактор для&nbsp;создания презентаций онлайн</div>
-										<div class="server__property">Совместимость с&nbsp;форматами MS Office и&nbsp;OpenDocument</div>
-										<div class="server__property">Два режима совместного редактирования в&nbsp;реальном времени</div>
-										<div class="server__property">Рецензирование, комментарии, чат</div>
-										<div class="server__property">Встроенные дополнения: переводчик, редактор изображений, OCR и&nbsp;другие</div>
-									</div>
-								</div>
-							</div>
-							<div class="server__column">
-								<div class="server__item">
-									<div class="server__name">
-										Хранилище документов
-									</div>
-									<div class="server__text">
-										<div class="server__property">Структурированное хранение документации</div>
-										<div class="server__property">Предоставление доступа для&nbsp;отдельных пользователей или&nbsp;целых отделов</div>
-										<div class="server__property">Разграничение прав доступа: чтение, рецензирование, редактирование</div>
-										<div class="server__property">Предоставление доступа по&nbsp;внешней ссылке</div>
-										<div class="server__property">Управление версиями и&nbsp;ревизиями</div>
-										<div class="server__property">Встраивание документов в&nbsp;веб-страницы</div>
-										<div class="server__property">Тесная интеграция с&nbsp;почтой</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="server__row">
-							<div class="server__column">
-								<div class="server__item">
-									<div class="server__name">
-										Почта
-									</div>
-									<div class="server__text">
-										<div class="server__property">Почтовый сервер</div>
-										<div class="server__property">Создание корпоративных адресов в&nbsp;своем домене</div>
-										<div class="server__property">Агрегатор для&nbsp;сбора почты с&nbsp;разных акаунтов</div>
-										<div class="server__property">Сортировка корреспонденции с&nbsp;помощью тэгов</div>
-										<div class="server__property">Адресная книга и&nbsp;автоответчик</div>
-										<div class="server__property">Интеграция с&nbsp;календарем и&nbsp;системой документооборота</div>
-										<div class="server__property">Быстрый просмотр и&nbsp;сохранение прикрепленных файлов для&nbsp;редактирования</div>
-									</div>
-								</div>
-							</div>
-							<div class="server__column">
-								<div class="server__item">
-									<div class="server__name">
-										Календарь
-									</div>
-									<div class="server__text">
-										<div class="server__property">Персональные и&nbsp;групповые календари</div>
-										<div class="server__property">Просмотр по&nbsp;дням, неделям, месяцам, за выбранный период</div>
-										<div class="server__property">Отображение в&nbsp;виде календаря или&nbsp;списка</div>
-										<div class="server__property">Совместный доступ к календарям</div>
-										<div class="server__property">Создание/редактирование событий, рассылка приглашений, напоминания</div>
-										<div class="server__property">Синхронизация со&nbsp;сторонними календарями</div>
-										<div class="server__property">Интеграция с&nbsp;почтой и&nbsp;автодобавление событий</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="server__row">
-							<div class="server__column">
-								<div class="server__item">
-									<div class="server__name">
-										CRM
-									</div>
-									<div class="server__text">
-										<div class="server__property">Уровни теплоты контактов</div>
-										<div class="server__property">Управление клиентской базой</div>
-										<div class="server__property">Кастомизация под компанию</div>
-										<div class="server__property">Быстрая регистрация потенциальных клиентов</div>
-										<div class="server__property">Онлайн-инвойсинг</div>
-										<div class="server__property">Звонки клиентам</div>
-										<div class="server__property">Отчеты о продажах</div>
-									</div>
-								</div>
-							</div>
-							<div class="server__column">
-								<div class="server__item">
-									<div class="server__name">
-										Панель управления
-									</div>
-									<div class="server__text">
-										<div class="server__property">Автоматизированное управление системой Р7-Офис на&nbsp;вашем сервере</div>
-										<div class="server__property">Резервное копирование данных</div>
-										<div class="server__property">Централизация доступа с&nbsp;помощью LDAP</div>
-										<div class="server__property">Настройка параметров входа в&nbsp;систему</div>
-										<div class="server__property">Поддержка двухфакторной аутентификации</div>
-										<div class="server__property">Использование технологии Единого входа (SSO)</div>
-										<div class="server__property">Отслеживание входов в&nbsp;систему и&nbsp;других действий пользователей</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="server__links">
-						<div class="btn btn_white">
-							<a href="https://rus.merlion.ru/demo/r7-office#r7-ofis-korporativnyy-server" target="_blank" class="demoButton">Запросить демонстрацию</a>
-						</div>
-					</div>
-					<div class="footer">
-						<div class="footer__content">
-							<div class="footer__logo">
-								<a target="_blank" href="https://rus.merlion.ru/">
-									<img src="https://static.merlion.ru/promo/2022/r7-office-document-editors/logo_merlion.svg" alt="МЕРЛИОН импортозамещение">
-								</a>
-							</div>
-							<div class="footer__text">
-								<h5>MERLION Официальный дистрибьютор с&nbsp;ноября 2019 года</h5>
-								<p><span>Более 130 реализованных проектов</span>среди них внедрения в&nbsp;крупнейшие российские компании</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-		</main>
-        <div class="form">
-            <div id="requestForm">
-<!--             <h2>Форма заявки</h2>
-            <p>Получить консультацию специалиста</p> -->
-            <div class="register">
-                <form method="post" class="former" action="" enctype="multipart/form-data">
-                    <input type="hidden" name="form_id" value="4189" />
-                    <input type="hidden" name="ektp_no" value="" />
-                    <div>
-                        <div class="field text" id="form_field_i1"><strong>Имя</strong><span class="required">*</span></div>
-                        <div class="input text" id="form_input_i1">
-                            <input type="text" name="i1" value="" size="50" class="text required validate-me" placeholder="" />
-                        </div>
-                        <div class="clear"></div>
-                        <div class="field text" id="form_field_i2"><strong>Компания</strong><span class="required">*</span></div>
-                        <div class="input text" id="form_input_i2">
-                            <input type="text" name="i2" value="" size="50" class="text required validate-me" placeholder="" />
-                        </div>
-                        <div class="clear"></div>
-                        <div class="field text" id="form_field_i3"><strong>Телефон</strong><span class="required">*</span></div>
-                        <div class="input text" id="form_input_i3">
-                            <input type="number" name="i3" value="" size="50" class="text required validate-me" placeholder="" />
-                        </div>
-                        <div class="clear"></div>
-                        <div class="field text" id="form_field_i4"><strong>E-mail</strong><span class="required">*</span></div>
-                        <div class="input text" id="form_input_i4">
-                            <input type="text" name="i4" value="" size="50" class="text required validate-me" placeholder="" />
-                        </div>
-                        <div class="field text" id="form_field_i5"><strong>Комментарий</strong><span class="required">*</span></div>
-                        <div class="input text" id="form_input_i5">
-                            <input type="text" name="i5" value="" size="50" class="text required validate-me" placeholder="" />
-                        </div>
-<!--                         <div class="field textarea" id="form_field_i4"><strong>Вопрос</strong><span class="required">*</span></div>
-                        <div class="input textarea"><textarea cols="50" rows="3" name="i4" class="text required validate-me" placeholder="Вопрос"></textarea></div> -->
-                        <div class="clear"></div>
-                        <div class="clear20"></div>
-
-                            <div class="field checkbox-field">
-                                <input type="hidden" name="policy" value="0" />
-                                <input class="required validate-me" type="checkbox" name="policy" id="policyCheckbox" value="1" /><label for="policyCheckbox"></label>
-                            </div>
-                            <div class="input text">Согласен с условиями <a href="/about/privacy-policy/">политики обработки персональных данных</a></div>
-
-                        <div class="clear20"></div>
-                        <input type="submit" value="Отправить" class="sendbutton" name="subm" />
-                    </div>
-                </form>
-            </div>
-            <div id="requestFormId" data-id="4189"></div>
-            <div class="clear30"></div>
-            <div class="hero-form">
-                <div class="overflow">
-                    <div class="inps"></div>
-                </div>
-            </div>
-        </div>
+<header>
+  <div class="container">
+    <div class="wrapper">
+      <div class="logo"><a href="https://tegrus.ru/"><img src="img/logo_tegrus.svg" alt="TEGRUS"></a></div>
     </div>
-		<a id="toTop" href="#">
-		</a>
-
-		<script src="https://static.lc-group.ru/js/jquery-3.6.1.min.js"></script>
-		<script type="text/javascript" src="https://static.lc-group.ru/js/jquery.fancybox.min.js"></script>
-		<script sync type='text/javascript' src='https://static.lc-group.ru/js/privacyPolicy.js'></script>
-		<script type="text/javascript" src="js/validate_promo.js"></script>
-		<script type="text/javascript" src="js/common.js"></script>
-			<!--[if lt IE 9]>
-				<script src="libs/html5shiv/es5-shim.min.js"></script>
-				<script src="libs/html5shiv/html5shiv.min.js"></script>
-				<script src="libs/html5shiv/html5shiv-printshiv.min.js"></script>
-				<script src="libs/respond/respond.min.js"></script>
-			<![endif]-->
-	</body>
-</html>
+  </div>
+</header>
+<main>
+  <section class="banner"><img src="img/banner.webp" alt="Семейство продуктов HPE MSA GEN6"></section>
+  <div class="wrapper_size">
+    <div class="lf"></div>
+    <div class="rg"></div>
+  </div>
+  <section class="main_section" id="main">
+    <div class="container">
+      <div class="wrapper">
+        <div class="row">
+          <div class="col col_left">
+            <div class="col_content">
+              <div class="quote">
+                <div class="quote_text">Решения на основе <nobr>флэш-памяти</nobr>, которая позволяет повысить производительность и&nbsp;надёжность при одновременном снижении эксплуатационных расходов</div>
+              </div>
+            </div>
+          </div>
+          <div class="col col_right">
+            <div class="col_content">
+              <div class="text_container">
+                <p>Все большее количество компаний начинают использовать решения на&nbsp;основе флэш-памяти. Данная ситуация приводит к&nbsp;снижению цен на&nbsp;флэш-накопители, а&nbsp;также влечет за&nbsp;собой повышение интереса к&nbsp;гибридным массивам, так как они становятся более доступными для клиентов сегмента малого и&nbsp;среднего бизнеса, желающих экономично запускать критически важные приложения, такие как базы данных, электронная почта или ERP-системы.</p>
+                <p>Сочетая скорость работы флэш-памяти с&nbsp;ёмкостью жёстких дисков, гибридный подход позволяет достичь баланса между производительностью, ёмкостью и&nbsp;ценой.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col col_left">
+          <div class="wrapper">
+            <div class="col_content">
+              <div class="text_container">
+                <h2>Семейство<br>продуктов<br>HPE MSA GEN6</h2>
+                <h3>Новое поколение гибридной системы хранения данных</h3>
+                <p>Недавно компания Hewlett Packard Enterprise представила новое поколение гибридной системы хранения данных начального уровня с&nbsp;поддержкой флеш-памяти, которая позволит предприятиям сконцентрироваться на&nbsp;бизнес-задачах и&nbsp;обеспечит высокий уровень автоматизации и&nbsp;производительности даже в&nbsp;условиях ограниченного бюджета.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col col_right">
+          <div class="img_container"><img src="img/office_01.webp" alt="Семейство продуктов HPE MSA GEN6"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="why_section">
+    <div class="container">
+      <div class="wrapper">
+        <div class="row">
+          <div class="col col_left">
+            <div class="col_content _anim-items _anim-no-hide">
+              <div class="text_container">
+                <h2>Почему<br>HPE MSA GEN6?</h2>
+              </div>
+            </div>
+          </div>
+          <div class="col col_right">
+            <div class="col_content _anim-items _anim-no-hide">
+              <div class="text_container">
+                <p>Лучшая в&nbsp;своём классе производительность, поддержка гибридной конфигурации для ускорения работы приложений и&nbsp;интуитивно понятный интерфейс настройки и&nbsp;управления массивом. HPE MSA&nbsp;&mdash; это доступные по&nbsp;цене решения начального уровня для компаний малого и&nbsp;среднего бизнеса, которые так&nbsp;же будут незаменимыми для использования в&nbsp;удалённых офисах и&nbsp;филиалах (ROBO) корпоративных клиентов.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="count_section">
+    <div class="wrapper">
+      <div class="row">
+        <div class="col col_left">
+          <div class="col_content">
+            <div class="text_container">
+              <h2>Последовательное стремление к&nbsp;совершенству</h2>
+              <h3>Компания HPE совершенствовала шесть поколений системы MSA, уделяя особое внимание балансу производительности и&nbsp;доступности, простоте и&nbsp;качеству опыта владения</h3>
+              <p>По&nbsp;сравнению с&nbsp;пятым поколением, HPE MSA Gen6 увеличена производительность, на&nbsp;45% повышена эффективность функции Tiring, появилась новая утилита управления и&nbsp;возросла доступность данных. Семейство HPE MSA традиционно сочетает в&nbsp;себе простоту, производительность и&nbsp;гибкость, чего нет в&nbsp;других массивах начального уровня</p>
+            </div>
+          </div>
+        </div>
+        <div class="col col_right">
+          <div class="col_content">
+            <div class="count">
+              <div class="count_header">
+                <p class="small-text">
+                   Повышена <br>эффективность <br>функции Tiring</p>
+              </div>
+              <div class="count_content">
+                <div>&gt;</div>
+                <div class="count-block"></div>
+                <div class="medium-text">%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="advantages_section">
+    <div class="container">
+      <div class="wrapper">
+        <div class="row">
+          <div class="col">
+            <div class="col_content">
+              <div class="advantage_header">
+                <h2>Основные <br>преимущества</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col col_left">
+            <div class="col_content">
+              <div class="advantage_item">
+                <div class="advantage_text">
+                  <h4>Простота</h4>
+                  <p>Новый интуитивно понятный интерфейс управления HPE MSA Gen6 позволяет настроить массив, не&nbsp;обладая специальными знаниями по&nbsp;администрированию СХД, можно настроить даже без изучения инструкции</p>
+                </div>
+              </div>
+              <div class="advantage_item">
+                <div class="advantage_text">
+                  <h4>Производительность</h4>
+                  <p>HPE MSA Gen6 обеспечивает отличную производительность при минимальных вложениях&nbsp;— 325&nbsp;000 операций ввода-вывода в&nbsp;секунду менее чем за&nbsp;10&nbsp;000 долларов США, усовершенствования функция Tiering* v2.0 стала на&nbsp;45% эффективнее, по&nbsp;сравнению с&nbsp;массивами MSA предыдущего поколения. Tiering&nbsp;— механизм многоуровневого хранения, обеспечивает высокую производительность и&nbsp;меньшие задержки. Это решение повышает производительность в&nbsp;2-4 раза по&nbsp;сравнению с&nbsp;конфигурациями, только на&nbsp;жестких дисках, и&nbsp;позволяет массиву реагировать на&nbsp;меняющиеся рабочие нагрузки, используя небольшое количество SSD накопителей. «Горячие» данные автоматически перемещаются на&nbsp;самый быстрый тип носителей в&nbsp;режиме реального времени, позволяя заказчикам более эффективно использовать емкость SSD и&nbsp;HDD-накопителей и&nbsp;наращивать их&nbsp;емкость в&nbsp;зависимости от&nbsp;потребностей и&nbsp;нагрузки</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col col_right">
+            <div class="col_content">
+              <div class="advantage_item">
+                <div class="advantage_text">
+                  <h4>Доступность</h4>
+                  <p>Высокий уровень безопасности данных обеспечивается возможностью создавать RAID-группы типа MSA Data Protection Plus (MSA&nbsp;DP+) который позволяет задействовать все накопители для улучшения общей эффективности системы и&nbsp;ее&nbsp;производительности. В&nbsp;случае сбоя диска MSA&nbsp;DP+, по&nbsp;внутренним оценкам HPE, ускоряет восстановление в&nbsp;25&nbsp;раз, значительно сокращая период сниженной производительности и&nbsp;время уязвимого состояния массива</p>
+                </div>
+              </div>
+              <div class="advantage_item">
+                <div class="advantage_text">
+                  <h4>Отказоустойчивость</h4>
+                  <p>Инструмент HPE MSA Health Check предоставляет аналитический механизм, который позволяет устранить типичные причины незапланированного простоя. С&nbsp;его помощью заказчики могут сократить количество звонков в&nbsp;службу поддержки на&nbsp;76%. Этот облачный инструмент помогает администраторам, анализируя информацию о&nbsp;работе массива, на&nbsp;соблюдение лучшим практик по&nbsp;настройке и&nbsp;управлению массивом, а&nbsp;также на&nbsp;наличие неисправностей. Это бесплатно для всех заказчиков HPE MSA</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="products_section">
+    <div class="container">
+      <div class="wrapper wrapper_full">
+        <div class="row">
+          <div class="col col_left">
+            <div class="col_content">
+              <div class="img_container"><img src="img/hpe_msa_gen6_1060.webp" alt="HPE MSA GEN6 1060"></div>
+            </div>
+          </div>
+          <div class="col col_right">
+            <div class="col_content">
+              <div class="text_container">
+                <h2>HPE MSA GEN6 1060</h2>
+                <h3>1060</h3>
+                <p>Хорошо подойдёт для небольших инсталляций и&nbsp;выполнений статических задач с&nbsp;предсказуемой пропускной способностью и&nbsp;нагрузкой</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col col_left">
+          <div class="wrapper">
+            <div class="col_content">
+              <div class="text_container">
+                <h2>HPE MSA GEN6 2060/62</h2>
+                <h3>2060</h3>
+                <p>Универсальная модель с&nbsp;возможность перехода к&nbsp;гибридной конфигурации, хорошо подойдет для выполнения динамических нагрузок, а&nbsp;также крупномасштабных решений, таких как системы видеонаблюдения</p>
+              </div>
+              <div class="text_container">
+                <h3>2062</h3>
+                <p>Гибридная конфигурации, которая позволяет использовать технологию Tiering прямо из&nbsp;коробки (включает 2&nbsp;SSD диска и&nbsp;лицензию Advised Data Services), подходит для выполнения высокопроизводительных смешанных рабочих нагрузок, а&nbsp;также позволяет использовать массив, в&nbsp;качестве основной системы хранения в&nbsp;компании</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col col_right">
+          <div class="img_container"><img src="img/hpe_msa_gen_2060-62.webp" alt="HPE MSA GEN6 2060/62"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="features_section">
+    <div class="wrapper">
+      <div class="row">
+        <div class="col">
+          <div class="col_content">
+            <div class="chars">
+              <div class="chars_head">
+                <div class="chars_tr">
+                  <div class="chars_td">Характеристики масштабирования и производительности</div>
+                  <div class="chars_td">1060</div>
+                  <div class="chars_td">2060/62</div>
+                </div>
+              </div>
+              <div class="chars_body">
+                <div class="chars_tr">
+                  <div class="chars_td">Количество полок расширения</div>
+                  <div class="chars_td">3</div>
+                  <div class="chars_td">9</div>
+                </div>
+                <div class="chars_tr">
+                  <div class="chars_td">Максимальная сырая емкость</div>
+                  <div class="chars_td">668 ТБ</div>
+                  <div class="chars_td">1.92 ПБ</div>
+                </div>
+                <div class="chars_tr">
+                  <div class="chars_td">Максимальная производительность (8K&nbsp;100% случайное чтение, SSDs)</div>
+                  <div class="chars_td">154&nbsp;000 IOPS</div>
+                  <div class="chars_td">325&nbsp;000 IOPS</div>
+                </div>
+                <div class="chars_tr">
+                  <div class="chars_td">Пропускная способность (256K&nbsp;100% последовательное чтение, 10K drives)</div>
+                  <div class="chars_td">6.6 ГБ/c</div>
+                  <div class="chars_td">13.1 ГБ/c</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="objective_section">
+    <div class="container">
+      <div class="wrapper">
+        <div class="row">
+          <div class="col col_left">
+            <div class="col_content">
+              <div class="text_container">
+                <h2>HPE MSA Gen6 помогает решать задачи компаниям среднего и&nbsp;малого бизнеса</h2>
+              </div>
+            </div>
+          </div>
+          <div class="col col_right">
+            <div class="col_content">
+              <div class="quote">
+                <div class="quote_text">HPE MSA является идеальным вариантом для заказчиков, чей бизнес требует надежного, простого и&nbsp;недорогого решения, способного справляться с&nbsp;современными рабочими нагрузками и&nbsp;адаптироваться к растущим потребностям бизнеса</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="wrapper_full">
+        <div class="row">
+          <div class="col col_left">
+            <div class="col_content">
+              <div class="img_container"><img src="img/office_02.webp" alt="Новый инструмент HPE MSA Health Check"></div>
+            </div>
+          </div>
+          <div class="col col_right">
+            <div class="col_content">
+              <div class="text_container">
+                <p>Технология автоматического многоуровневнего хранения обеспечивает необходимую производительность для работы приложений и&nbsp;является хорошим решением корпоративного уровня по&nbsp;доступной цене.</p>
+                <p>Новый инструмент HPE MSA Health Check прогнозирует сбои до&nbsp;того, как они произойдут, что помогает компаниям больше внимания уделять бизнес-задачам.</p>
+                <p>HPE MSA Gen6 обладает новыми сервисами по&nbsp;управлению данными и&nbsp;построена на&nbsp;аппаратной платформе с&nbsp;современной архитектурой. HPE MSA обеспечивает надежную защиту самых важных данных, а&nbsp;также предоставляет удобный доступ к&nbsp;ним для сотрудников, где&nbsp;бы они не&nbsp;находились.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="form_section">
+    <div class="wrapper_full">
+      <div class="row">
+        <div class="col">
+          <div class="col_content">
+            <div id="requestForm">
+              <div class="form_container">
+                <h2>Получить <br>консультацию <br>специалиста</h2>
+                <div class="fill-form">
+                   Заполните все поля, пожалуйста</div>
+                <div class="register">
+                  <form class="former" method="post" action="" enctype="multipart/form-data">
+                    <div class="input_container input_text" id="requestForm_input_i1">
+                      <input class="text required validate-me" type="text" name="i1" value="" data-type="fio" placeholder="Имя Фамилия">
+                    </div>
+                    <div class="input_container input_text" id="requestForm_input_i2">
+                      <input class="text required validate-me" type="text" name="i2" value="" data-type="company" placeholder="Название компании">
+                    </div>
+                    <div class="input_container input_text" id="requestForm_input_i3">
+                      <input class="text required validate-me" type="text" name="i3" value="" data-type="email" placeholder="E-mail">
+                    </div>
+                    <div class="input_container input_text" id="requestForm_input_i4">
+                      <textarea class="text required validate-me" name="i4" placeholder="Ваш вопрос"></textarea>
+                    </div>
+                    <div class="inner-wrap">
+                      <div class="field checkbox-field">
+                        <input id="requestForm_policyCheckbox" type="checkbox" name="policy" value="1">
+                        <label class="customCheckbox" for="requestForm_policyCheckbox"></label>
+                      </div>
+                      <div class="input text">Согласен с&nbsp;условиями <a href="https://tegrus.ru/about/privacy-policy/" target="_blank">политики обработки персональных данных</a></div>
+                    </div>
+                    <input class="sendbutton" type="submit" value="Отправить" name="subm">
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="partners_section">
+    <div class="wrapper_full">
+      <div class="partners">
+        <div><img src="img/partner_gold.webp" alt="Gold Partner"></div>
+        <div><img src="img/partner_platinum.webp" alt="Platinum Partner"></div>
+      </div>
+    </div>
+  </section>
+  <div id="button"><span>Подобрать решение</span></div><a id="toTop" href="#main"></a>
+  <div id="getSolutionForm">
+    <div class="container">
+      <form class="former" method="post" action="" enctype="multipart/form-data">
+        <div class="row">
+          <div class="col">
+            <div class="col_content">
+              <h2>Пройдите тест из&nbsp;3&nbsp;шагов и&nbsp;узнайте стоимость Вашего решения</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col col_left">
+            <div class="col_content">
+              <div class="poll">
+                <div class="poll_block">
+                  <p>К&nbsp;какому сегменту относитcя Ваша организация?</p>
+                  <div class="input_container">
+                    <input id="segment_i1" type="radio" name="segment" value="1">
+                    <label for="segment_i1"></label><span>SoHo (Small office/home office)</span>
+                  </div>
+                  <div class="input_container">
+                    <input id="segment_i2" type="radio" name="segment" value="2">
+                    <label for="segment_i2"></label><span>SMB (small-medium business)</span>
+                  </div>
+                  <div class="input_container">
+                    <input id="segment_i3" type="radio" name="segment" value="3">
+                    <label for="segment_i3"></label><span>Enterprise</span>
+                  </div>
+                </div>
+                <div class="poll_block">
+                  <p>Направление деятельности Вашей компании:</p>
+                  <div class="input_container">
+                    <input id="direction_i1" type="radio" name="direction">
+                    <label for="direction_i1"></label><span>Финансы</span>
+                  </div>
+                  <div class="input_container">
+                    <input id="direction_i2" type="radio" name="direction">
+                    <label for="direction_i2"></label><span>Промышленность</span>
+                  </div>
+                  <div class="input_container">
+                    <input id="direction_i3" type="radio" name="direction">
+                    <label for="direction_i3"></label><span>Информационные технологии</span>
+                  </div>
+                  <div class="input_container">
+                    <input id="direction_i4" type="radio" name="direction">
+                    <label for="direction_i4"></label><span>Энергетика</span>
+                  </div>
+                  <div class="input_container">
+                    <input id="direction_i5" type="radio" name="direction">
+                    <label for="direction_i5"></label><span>Коммуникационные услуги</span>
+                  </div>
+                  <div class="input_container">
+                    <input id="direction_i6" type="radio" name="direction">
+                    <label for="direction_i6"></label><span>Нефть и&nbsp;газ</span>
+                  </div>
+                  <div class="input_container">
+                    <input id="direction_i7" type="radio" name="direction">
+                    <label for="direction_i7"></label><span>Здравоохранение</span>
+                  </div>
+                  <div class="input_container">
+                    <input id="direction_i8" type="radio" name="direction">
+                    <label for="direction_i8"></label><span>Товары первой необходимости</span>
+                  </div>
+                  <div class="input_container">
+                    <input id="direction_i9" type="radio" name="direction">
+                    <label for="direction_i9"></label><span>Товары вторичной необходимости</span>
+                  </div>
+                  <div class="input_container">
+                    <input id="direction_i10" type="radio" name="direction">
+                    <label for="direction_i10"></label><span>Другое</span>
+                  </div>
+                </div>
+                <div class="poll_block">
+                  <p>Решение какой из&nbsp;задач является для Вас приоритетным (вопрос с&nbsp;выбором нескольких ответов):</p>
+                  <div class="input_container">
+                    <input id="priority_i1" type="checkbox" name="priority">
+                    <label for="priority_i1"></label><span>Финансы</span>
+                  </div>
+                  <div class="input_container">
+                    <input id="priority_i2" type="checkbox" name="priority">
+                    <label for="priority_i2"></label><span>Промышленность</span>
+                  </div>
+                  <div class="input_container">
+                    <input id="priority_i3" type="checkbox" name="priority">
+                    <label for="priority_i3"></label><span>Информационные технологии</span>
+                  </div>
+                  <div class="input_container">
+                    <input id="priority_i4" type="checkbox" name="priority">
+                    <label for="priority_i4"></label><span>Энергетика</span>
+                  </div>
+                  <div class="input_container">
+                    <input id="priority_i5" type="checkbox" name="priority">
+                    <label for="priority_i5"></label><span>Коммуникационные услуги</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col col_right">
+            <div class="col_content">
+              <div class="form2">
+                <div class="register">
+                  <div class="input_container input_text" id="getSolutionForm_input_i1">
+                    <input class="text required validate-me" type="text" name="i1" value="" data-type="fio" placeholder="Имя Фамилия">
+                  </div>
+                  <div class="input_container input_text" id="getSolutionForm_input_i2">
+                    <input class="text required validate-me" type="text" name="i2" value="" data-type="company" placeholder="Название компании">
+                  </div>
+                  <div class="input_container input_text" id="getSolutionForm_input_i3">
+                    <input class="text required validate-me" type="text" name="i3" value="" data-type="email" placeholder="E-mail">
+                  </div>
+                  <div class="input_container input_text" id="getSolutionForm_input_i4">
+                    <textarea class="text required validate-me" name="i4" placeholder="Ваш вопрос"></textarea>
+                  </div>
+                  <div class="inner-wrap">
+                    <div class="input_container input_checkbox field checkbox-field">
+                      <input id="getSolutionForm_policyCheckbox" type="checkbox" name="policy">
+                      <label class="customCheckbox" for="getSolutionForm_policyCheckbox"></label>
+                    </div>
+                    <div class="policy_text">Согласен с&nbsp;условиями <a href="https://tegrus.ru/about/privacy-policy/" target="_blank">политики обработки персональных данных</a></div>
+                  </div>
+                  <input class="sendbutton" type="submit" value="Отправить" name="subm">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="container">
+    <div class="wrapper">
+      <div class="row">
+        <div class="col col_left">
+          <div class="col_content"><a href="https://tegrus.ru"><img src="img/logo_footer.svg" alt="Tegrus"></a></div>
+        </div>
+        <div class="col col_right">
+          <div class="row">
+            <div class="col">
+              <div class="col_content"><strong>Адрес</strong><br>МО, г.&nbsp;Красногорск,<br>бульвар Строителей, д.&nbsp;4,<br>БЦ&nbsp;«Кубик», блок «Б» (м.&nbsp;Мякинино)</div>
+            </div>
+            <div class="col">
+              <div class="col_content"><strong>Контакты</strong><br><a href="mailto:info@tegrus.ru" target="_blank"><nobr>info@tegrus.ru</nobr></a><br><a href='tel:+74952800230'><nobr>+7 (495) 280-02-30</nobr></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="wrapper">
+      <div class="row">
+        <div class="col">
+          <div class="col_content">&copy;&nbsp;2022, ООО &laquo;МП&raquo;
+            <nobr>Все права защищены.</nobr>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script type="text/javascript" src="https://static.lc-group.ru/js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="https://static.lc-group.ru/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/request.js"></script>
+<script type="text/javascript" src="js/validate_promo.js?&lt;?=rand(0,9999)?&gt;"></script>
+<!--if lt IE 9
+script(src='libs/html5shiv/es5-shim.min.js')
+script(src='libs/html5shiv/html5shiv.min.js')
+script(src='libs/html5shiv/html5shiv-printshiv.min.js')
+script(src='libs/respond/respond.min.js')
+-->
