@@ -428,7 +428,7 @@ section.main_section .container:nth-child(1) .col_right .col_content {
 }
 @media (max-width:992px) {
   section.main_section .container:nth-child(1) .col_right .col_content {
-    padding: 25px;
+    padding: 25px 25px 50px;
   }
 }
 section.main_section .container:nth-child(2) .wrapper {
