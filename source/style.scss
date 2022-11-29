@@ -1,6 +1,5 @@
-@use 'sass:math';
-@import url("https://static.lc-group.ru/css/jquery.fancybox.css");
-@import url("https://static.lc-group.ru/css/reset.css");
+@import url("../css/jquery.fancybox.css");
+@import url("../css/reset.css");
 
 // конвертер px в rem
 @function rem($value) {
@@ -350,19 +349,6 @@ section.banner {
 	}
 }
 
-// .wrapper_size {
-// 	max-width: 1140px;
-// 	background-color: red;
-// 	height: 20px;
-// 	margin: 0 auto;
-// 	// padding: 0 50px;
-// 	display: flex;
-// 	& > div{
-// 		flex: 0 0 50%;
-// 		border: 2px solid yellow;
-// 	}
-// }
-
 section.main_section {
 	padding: 50px 0;
 	@media ($mxw992) {
@@ -376,6 +362,9 @@ section.main_section {
 	}
 	.container {
 		&:nth-child(1) {
+			@media ($mxw992) {
+				padding: 0 0 25px;
+			}
 			.col_left{
 				.col_content{
 					margin: 0 0 45px;
@@ -383,28 +372,24 @@ section.main_section {
 						margin: 0;
 					}
 				}
-			}
-			.quote {
-				overflow: hidden;
-				max-width: 520px;
-				transform: translate(-70px, 0);
-				transition: transform 1s ease-out, opacity 1.5s;
-				@media ($mxw1200) {
-					transform: translate(-25px, 0);
+				.quote {
+					overflow: hidden;
+					max-width: 520px;
+					transform: translate(-70px, 0);
+					@media ($mxw1200) {
+						transform: translate(-25px, 0);
+					}
+					@media ($mxw992) {
+						transform: translate(0, 0);
+					}
 				}
-				@media ($mxw992) {
-					transform: translate(0, 0);
-				}
-			}
-			@media ($mxw480) {
-				padding: 0 0 25px;
 			}
 			.col_right {
 				justify-content: center;
 				.col_content {
 					padding: 50px 25px;
 					@media ($mxw992) {
-						padding: 25px 25px 50px;
+						padding: 25px;
 					}
 				}
 			}
@@ -475,22 +460,21 @@ section.why_section {
 		&_left {
 			align-items: flex-start;
 			.col_content{
-				transition: opacity 1s 0.3s ease;
+				transition: opacity 1.6s 0.2s ease, transform 1.2s ease-out;
+				transform: translate(-100%,0);
 				opacity: 0;
+				@media ($mxw992) {
+					opacity: 1;
+					transform: translate(0,0);
+				}
 				&._active{
 					opacity: 1;
+					transform: translate(0,0);
 				}
 			}
 		}
 		&_right {
 			align-items: center;
-			.col_content{
-				transition: opacity 1s 1s ease;
-				opacity: 0;
-				&._active{
-					opacity: 1;
-				}
-			}
 		}
 	}
 	p {
@@ -727,7 +711,6 @@ section.features_section {
 		max-width: 100%;
 	}
 	.chars_head {
-		// margin: 0 0 25px;
 			@media ($mxw992) {
 				margin: 0 0 15px;
 			}
@@ -949,7 +932,7 @@ form, .form_container{
 		display: none;
 	}
 	input[type="checkbox"]:checked + label:before, input[type="radio"]:checked + label:before {
-		background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e") 43% / 50% no-repeat;
+		background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e") center / 50% no-repeat;
 	}
 	input[type="checkbox"] + label:before, input[type="radio"] + label:before {
 		content: "";
@@ -963,6 +946,10 @@ form, .form_container{
 		margin: 0px 12px 0 0;
 		user-select: none;
 		cursor: pointer;
+		@media ($mxw992) {
+			width: 30px;
+			height: 30px;
+		}
 	}
 	.inner-wrap {
 		display: flex;
@@ -1037,7 +1024,7 @@ form, .form_container{
 	.poll{
 		.input_container{
 			margin: 0 0 8px;
-			align-items: flex-start;
+			align-items: center;
 		}
 		@media ($mxw992) {
 			align-items: center;
@@ -1176,7 +1163,7 @@ footer {
 }
 
 
-#button {
+#getSolutionButton {
 	max-width: 246px;
 	width: 100%;
 	height: 48px;

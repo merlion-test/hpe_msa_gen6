@@ -1,7 +1,5 @@
 "use strict";
 
-// let privacyContent = document.querySelectorAll('.checkbox-field, .checkbox-field+div');
-// document.querySelectorAll('.checkbox-field, .checkbox-field+div').outerHtml = '<div class="form-wrapper">' +privacyContent+'</div>';
 
 let animatedBlock = document.querySelector(".count-block");
 let timer;
@@ -62,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let btn = document.querySelector("#toTop");
     window.addEventListener("scroll", function () {
         // Если прокрутили дальше 1599px, показываем кнопку
-        if (pageYOffset > 2500) {
+        if (pageYOffset > 3000) {
             btn.classList.add("show");
             // Иначе прячем
         } else {
@@ -78,8 +76,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function showButtonUp() {
-  let btnUp = document.querySelector('#button');
-  if (window.pageYOffset > 2300) {
+  let btnUp = document.querySelector('#getSolutionButton');
+  if (window.pageYOffset > 1000) {
     btnUp.style.opacity = '1';
   } else {
     btnUp.style.opacity = '0';
@@ -126,3 +124,17 @@ if (animItems.length > 0) {
         animOnScroll();
     }, 300);
 }
+
+$(document).ready(function() {
+  $('#getSolutionButton').click(function(){
+    $.fancybox.open({
+      src  : '#getSolutionForm',
+      scrolling   : 'hidden',
+      opts : {
+        afterClose : function( instance, current ) {
+          $('.post_ramka').html('');
+        }
+      }
+    });
+  });
+});
